@@ -4,16 +4,30 @@
   #
   # Search for packages here: https://search.nixos.org/packages
   home.packages = with pkgs; [
+    omnix
+
     # Unix tools
     ripgrep # Better `grep`
     fd
     sd
     tree
-    mc
+    gnumake
+
+    # Nix dev
+    cachix
+    nil # Nix language server
+    nix-info
+    nixpkgs-fmt
+
 
     # On ubuntu, we need this less for `man home-configuration.nix`'s pager to
     # work.
     less
+
+    ffmpeg
+    
+    # Network
+    inetutils 
   ];
 
   # Programs natively supported by home-manager.
