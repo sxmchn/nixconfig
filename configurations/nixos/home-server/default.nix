@@ -10,5 +10,12 @@ in
   imports = [
     self.nixosModules.default
     ./configuration.nix
+    # Additional packages
+    ./packages.nix
+    # Power management, bluetooth
+    ./hardware-advanced.nix
+    # Virtualization
+    ./virtualisation.nix
+    ./home-assistant.nix
   ];
 }
