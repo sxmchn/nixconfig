@@ -1,6 +1,6 @@
 { 
   systemd.tmpfiles.rules = [
-    "d /var/lib/home-assistant 0755 1000 100 - -"
+    "d /var/lib/home-assistant 0755 artme users - -"
   ];
 
   # Home Assistant Container
@@ -12,7 +12,7 @@
 
     volumes = [
       "/var/lib/home-assistant:/config"
-      "/run/dbus:/run/dbus:ro"
+      "/run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro"
     ];
 
     extraOptions = [
