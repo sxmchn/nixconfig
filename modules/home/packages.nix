@@ -28,6 +28,8 @@
     
     # Network
     inetutils 
+    netcat-gnu
+    nmap
   ];
 
   # Programs natively supported by home-manager.
