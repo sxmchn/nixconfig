@@ -1,4 +1,8 @@
-{
+{ 
+  systemd.tmpfiles.rules = [
+    "d /var/lib/home-assistant 0755 1000 100 - -"
+  ];
+
   # Home Assistant Container
   virtualisation.oci-containers.backend = "podman";
 
@@ -8,7 +12,6 @@
 
     volumes = [
       "/var/lib/home-assistant:/config"
-      "/etc/localtime:/etc/localtime:ro"
       "/run/dbus:/run/dbus:ro"
     ];
 
