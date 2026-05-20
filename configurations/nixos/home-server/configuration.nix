@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -10,6 +12,10 @@
 
 	nixpkgs.hostPlatform = "x86_64-linux";
 	networking.hostName = "home-server";
+
+  users.users.artme.extraGroups = lib.mkAfter [
+    "dialout"
+  ];
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
