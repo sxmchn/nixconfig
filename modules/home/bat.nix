@@ -1,7 +1,12 @@
 { pkgs, lib, ... }:
 
 {
-  programs.bat.enable = true;
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "gruvbox-dark";
+    };
+  };
 
   home.activation.linkGhosttyBatSyntax = lib.mkIf pkgs.stdenv.isDarwin (
     lib.hm.dag.entryAfter [ "writeBoundary" ] ''
