@@ -39,7 +39,7 @@ in
 
     # Enable home-manager for our user
     home-manager.users = mapListToAttrs config.myusers (name: {
-      imports = [ (self + /configurations/home/${name}.nix) ];
+        imports = [ (self + /configurations/home/${name}.nix) ];
     });
 
     # All users can add Nix caches.

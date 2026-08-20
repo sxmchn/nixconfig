@@ -16,6 +16,12 @@ in
 
   system.primaryUser = "artme";
 
+  home-manager.users.artme = {
+    imports = [
+      ../../modules/home/gui
+    ];
+  };
+
   # Automatically move old dotfiles out of the way
   #
   # Note that home-manager is not very smart, if this backup file already exists it
