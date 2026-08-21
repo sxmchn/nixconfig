@@ -16,6 +16,8 @@ in
     ./hardware-advanced.nix
     # Virtualization
     ./virtualisation.nix
+    # Reverse proxy for local web services
+    ./nginx.nix
     ./home-assistant.nix
   ];
 }

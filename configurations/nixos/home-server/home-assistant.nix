@@ -26,6 +26,12 @@
     };
   };
 
-  # Открыть порт HA
+  services.nginx.virtualHosts."home-assistant.lan" = {
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:8123";
+      proxyWebsockets = true;
+    };
+  };
+
   networking.firewall.allowedTCPPorts = [ 8123 ];
 }
