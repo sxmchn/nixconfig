@@ -1,5 +1,25 @@
 # Neovim configuration managed using https://github.com/nix-community/nixvim
 {
+  # Use the terminal's clipboard when Neovim is running over SSH. This lets
+  # yanks reach the client machine without requiring xclip/wl-copy on the
+  # server.
+  extraConfigLua = ''
+    if vim.env.SSH_TTY then
+      local osc52 = require("vim.ui.clipboard.osc52")
+      vim.g.clipboard = {
+        name = "OSC 52",
+        copy = {
+          ["+"] = osc52.copy("+"),
+          ["*"] = osc52.copy("*"),
+        },
+        paste = {
+          ["+"] = osc52.paste("+"),
+          ["*"] = osc52.paste("*"),
+        },
+      }
+    end
+  '';
+
   # Theme
   colorschemes.gruvbox.enable = true;
 
@@ -71,6 +91,15 @@
     lazygit.enable = true;
   };
   keymaps = [
+    # Ghostty sends Ctrl-C for Cmd-C when there is no terminal selection.
+    # In Visual mode, copy Neovim's selection to the system clipboard.
+    {
+      mode = "v";
+      key = "<C-c>";
+      action = ''"+y'';
+      options.desc = "Copy selection to clipboard";
+    }
+
     # Open lazygit within nvim. 
     {
       action = "<cmd>LazyGit<CR>";
