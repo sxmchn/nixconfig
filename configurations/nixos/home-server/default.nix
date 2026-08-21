@@ -19,5 +19,6 @@ in
     # Reverse proxy for local web services
     ./nginx.nix
     ./home-assistant.nix
+    ./mosquitto-zigbee2mqtt.nix
   ];
 }
