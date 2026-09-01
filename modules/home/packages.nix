@@ -25,6 +25,7 @@
     less
 
     ffmpeg
+    yt-dlp
     
     # Network
     inetutils 
