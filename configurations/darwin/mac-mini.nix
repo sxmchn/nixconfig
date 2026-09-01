@@ -1,6 +1,6 @@
 # See /modules/darwin/* for actual settings
 # This file is just *top-level* configuration.
-{ flake, lib, ... }:
+{ flake, lib, pkgs, ... }:
 
 let
   inherit (flake) inputs;
@@ -19,6 +19,11 @@ in
   home-manager.users.artme = {
     imports = [
       ../../modules/home/gui
+    ];
+
+    home.packages = with pkgs; [
+      android-tools
+      yt-dlp
     ];
   };
 

@@ -25,8 +25,6 @@
     less
 
     ffmpeg
-    yt-dlp
-    android-tools
     
     # Network
     inetutils 
