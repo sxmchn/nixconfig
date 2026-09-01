@@ -1,4 +1,5 @@
 # Neovim configuration managed using https://github.com/nix-community/nixvim
+{ pkgs }:
 {
   # Use the terminal's clipboard when Neovim is running over SSH. This lets
   # yanks reach the client machine without requiring xclip/wl-copy on the
@@ -45,19 +46,20 @@
     lualine.enable = true;
     bufferline.enable = true;
     treesitter = {
-  enable = true;
-  ensureInstalled = [
-    "lua"
-    "vim"
-    "vimdoc"
-    "bash"
-    "json"
-    "yaml"
-    "toml"
-    "markdown"
-    "nix"
-  ];
-};
+      enable = true;
+      grammarPackages =
+        with pkgs.vimPlugins.nvim-treesitter.builtGrammars;
+      [
+        lua
+        vim
+        vimdoc
+        bash
+        nix
+      ];
+
+      highlight.enable = true;
+      indent.enable = true;
+    };
 
     which-key = {
       enable = true;
