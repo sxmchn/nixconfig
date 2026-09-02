@@ -28,6 +28,7 @@
       macos-option-as-alt = true;
       copy-on-select = false;
       confirm-close-surface = false;
+      shell-integration-features = "ssh-env,ssh-terminfo";
     };
   };
 }
