@@ -12,7 +12,7 @@
     enable = true;
 
     package =
-      if pkgs.stdenv.isDarwin then
+      if pkgs.stdenv.hostPlatform.isDarwin then
         null
       else
         pkgs.ghostty;

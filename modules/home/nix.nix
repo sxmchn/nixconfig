@@ -6,7 +6,7 @@
   # TODO: Avoid setting `nix.package` in two places. Does https://github.com/juspay/nixos-unified-template/issues/93 help here?
   nix.package = lib.mkDefault pkgs.nix;
   home.packages =
-    lib.optionals (!pkgs.stdenv.isDarwin) [
+    lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
       config.nix.package
   ];
 }

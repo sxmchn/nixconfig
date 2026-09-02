@@ -8,7 +8,7 @@
     };
   };
 
-  home.activation.linkGhosttyBatSyntax = lib.mkIf pkgs.stdenv.isDarwin (
+  home.activation.linkGhosttyBatSyntax = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
     lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       if [ -f "/Applications/Ghostty.app/Contents/Resources/bat/syntaxes/ghostty.sublime-syntax" ]; then
         mkdir -p "$HOME/.config/bat/syntaxes"
