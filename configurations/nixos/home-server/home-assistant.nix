@@ -1,4 +1,18 @@
-{ 
+{ pkgs, ... }:
+
+{
+  security.sudo.extraRules = [
+    {
+      users = [ "artme" ];
+      commands = [
+        {
+          command = "${pkgs.systemd}/bin/systemctl restart podman-homeassistant.service";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
+
   systemd.tmpfiles.rules = [
     "d /var/lib/home-assistant 0755 artme users - -"
   ];
