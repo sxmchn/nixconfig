@@ -10,6 +10,7 @@
 
 	nixpkgs.hostPlatform = "x86_64-linux";
 	networking.hostName = "home-server";
+	nixos-unified.sshTarget = "artme@home-server.lan";
 
 	system.stateVersion = "25.11";
 }
